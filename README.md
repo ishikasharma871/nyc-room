@@ -1,20 +1,20 @@
-# 🏙️ NYC Airbnb Room Type Predictor
+# NYC Airbnb Room Type Predictor
 
 **Guess whether an Airbnb listing in New York City is an entire home, a private room, or a shared room — just from its price, location, and booking details.**
 
-🔗 **Live demo:** open `index.html` (or the deployed link, if you've set one up) and try it in your browser — no coding needed.
-📓 **Full analysis:** [`nyc_airbnb_room_type_classification.ipynb`](./nyc_airbnb_room_type_classification.ipynb)
-🎢 **Visual walkthrough of how it all fits together:** [`the_build_line_guide.html`](./the_build_line_guide.html) — open this in a browser for a fun, animated "subway map" explanation of the whole project.
+**Live demo:** open `index.html` (or the deployed link, if you've set one up) and try it in your browser — no coding needed.
+**Full analysis:** [`nyc_airbnb_room_type_classification.ipynb`](./nyc_airbnb_room_type_classification.ipynb)
+ **Visual walkthrough of how it all fits together:** [`the_build_line_guide.html`](./the_build_line_guide.html) — open this in a browser for a fun, animated "subway map" explanation of the whole project.
 
 ---
 
-## 🤔 What is this project, in plain English?
+##  What is this project, in plain English?
 
 Every Airbnb listing in New York City is one of three types:
 
-- 🏠 **Entire home/apartment** – you get the whole place to yourself
-- 🚪 **Private room** – you get your own room inside someone else's home
-- 🛏️ **Shared room** – you share the room itself with other guests
+-  **Entire home/apartment** – you get the whole place to yourself
+-  **Private room** – you get your own room inside someone else's home
+-  **Shared room** – you share the room itself with other guests
 
 This project builds a **machine learning model** — a computer program that learns patterns from past examples — that looks at a listing's details (like its price, neighbourhood, how many nights you must book, how many reviews it has, etc.) and **predicts which of the three room types it most likely is.**
 
@@ -24,23 +24,23 @@ It doesn't just predict the room type — it also tells you **how confident** it
 
 ---
 
-## 🧭 How the whole project fits together
+## How the whole project fits together
 
 This project isn't just "a notebook that makes a prediction." It's a complete, real pipeline — the same kind used to ship machine learning to actual users. There are 5 stages, like stops on a subway line:
 
 | Stop | What happens | Where it lives |
 |---|---|---|
-| 🧠 **1. Model** | Clean the data, explore it, engineer features, train and compare several ML algorithms, pick the best one | `nyc_airbnb_room_type_classification.ipynb` |
-| 🧊 **2. Freeze it** | Save the finished, trained model as a single reusable file so it never has to be retrained | `Model_Pipeline.pkl` (produced by the notebook) |
-| ⚡ **3. Give it a voice (API)** | Wrap the frozen model in a small web server that can accept a listing's details and reply with a prediction | `main.py` (built with FastAPI) |
-| 🎨 **4. Give it a face (UI)** | A simple, friendly web page where anyone can type in listing details and see the prediction, no coding required | `index.html`, `style.css`, `script.js` |
-| 🚀 **5. Go live** | Deploy the API and the web page so anyone in the world can use it, not just on one laptop | Render (see [Deployment](#-deployment)) |
+|  **1. Model** | Clean the data, explore it, engineer features, train and compare several ML algorithms, pick the best one | `nyc_airbnb_room_type_classification.ipynb` |
+|  **2. Freeze it** | Save the finished, trained model as a single reusable file so it never has to be retrained | `Model_Pipeline.pkl` (produced by the notebook) |
+|  **3. Give it a voice (API)** | Wrap the frozen model in a small web server that can accept a listing's details and reply with a prediction | `main.py` (built with FastAPI) |
+|  **4. Give it a face (UI)** | A simple, friendly web page where anyone can type in listing details and see the prediction, no coding required | `index.html`, `style.css`, `script.js` |
+|  **5. Go live** | Deploy the API and the web page so anyone in the world can use it, not just on one laptop | Render (see [Deployment](#-deployment)) |
 
 If you want the fun, illustrated version of this table, open **`the_build_line_guide.html`** in a browser — it walks through each stop with an interactive animation.
 
 ---
 
-## 🔬 Step 1: The Machine Learning model (in plain English)
+##  Step 1: The Machine Learning model (in plain English)
 
 All the "thinking" work happens in the Jupyter notebook: `nyc_airbnb_room_type_classification.ipynb`. Here's what it does, step by step:
 
@@ -54,7 +54,7 @@ All the "thinking" work happens in the Jupyter notebook: `nyc_airbnb_room_type_c
 8. **Test it honestly** — the tuned model was scored on the untouched test data for a realistic sense of real-world performance.
 9. **Save it** — the entire trained pipeline (cleaning + prediction, all in one) was frozen into a single file, `Model_Pipeline.pkl`, ready to be reused instantly without retraining.
 
-### 📊 How good is the model?
+###  How good is the model?
 
 | Model tried | Accuracy | F1 Score (macro) |
 |---|---|---|
@@ -71,7 +71,7 @@ After tuning, the final **Random Forest** model reached:
 
 ---
 
-## ⚡ Step 2: The API (`main.py`)
+## Step 2: The API (`main.py`)
 
 A trained model sitting in a notebook is only useful to the person who wrote it. The **API** turns it into something *any* app, website, or script can talk to.
 
@@ -112,13 +112,13 @@ And you'll get back something like:
 
 ---
 
-## 🎨 Step 3: The web interface
+## Step 3: The web interface
 
 Most people don't want to send raw JSON requests — they want to click and type. That's what `index.html`, `style.css`, and `script.js` are for: a clean, NYC-skyline-themed form where you fill in a listing's details and instantly see the predicted room type, styled and animated for a pleasant experience. Under the hood, it simply calls the same `/predict` API described above.
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 The project ships as two separate pieces, each deployed to **[Render](https://render.com/)**:
 
@@ -129,7 +129,7 @@ The interface's JavaScript is already pointed at the live API URL, so once both 
 
 ---
 
-## 🗂️ Project structure
+## Project structure
 
 ```
 nyc-room/
@@ -148,7 +148,7 @@ nyc-room/
 
 ---
 
-## 🛠️ Tech stack
+##  Tech stack
 
 | Purpose | Tool |
 |---|---|
@@ -161,7 +161,7 @@ nyc-room/
 
 ---
 
-## ▶️ Running it locally
+## Running it locally
 
 **1. Install the requirements:**
 ```bash
@@ -181,7 +181,7 @@ Update the API address inside `script.js` to point at `http://127.0.0.1:8000` if
 
 ---
 
-## 💡 What this project demonstrates
+##  What this project demonstrates
 
 - Framing a real-world question as a machine learning classification problem
 - A complete, leak-free data cleaning and preprocessing pipeline
@@ -193,6 +193,6 @@ Update the API address inside `script.js` to point at `http://127.0.0.1:8000` if
 
 ---
 
-## 📚 Dataset credit
+## Dataset credit
 
 [New York City Airbnb Open Data](https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data) — via Kaggle.
